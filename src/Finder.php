@@ -2,30 +2,45 @@
 <?php
 
 class Finder {
+  /**
+   * ! path Must Exist
+   * @param path Path of Folder You Want To Search As String
+   */
 	function __construct($path) {
 		$this->path = $path;
 	}
-
+  /**
+   * @param extension File Extensions That You Want To Find String Or Array
+   */
 	public function extension($extension) {
 		$this->extensions = is_string($extension) ? [$extension] : $extension;
 		return $this;
 	}
-
+  /**
+   * @param exclude File Names That You Want To Ignore
+   */
 	public function exclude($exclude) {
 		$this->exclude = is_string($exclude) ? [$exclude] : $exclude;
 		return $this;
 	}
-
+  /**
+   * @param include File Names That You Want To Find
+   */
 	public function include($include) {
 		$this->include = is_string($include) ? [$include] : $include;
 		return $this;
 	}
-
+  /**
+   * @param contain Check File Contain This Value
+   */
 	public function contain($contain) {
 		$this->contain = trim(strval($contain));
 		return $this;
 	}
-
+  /**
+   * @param date Timestamp That You Want To Check
+   * @param operation Any Math Operator +,-,*,/
+   */
 	public function date($date, $operation) {
 		$this->date = $date;
 		$this->operation = $operation;
